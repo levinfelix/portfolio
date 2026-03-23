@@ -111,9 +111,13 @@ document.addEventListener("DOMContentLoaded", () => {
         interactiveEle.forEach(el => {
             el.addEventListener("mouseenter", () => {
                 document.body.classList.add("cursor-hover");
+                if(el.classList.contains("btn") || el.closest(".btn")) {
+                    document.body.classList.add("hovering-btn");
+                }
             });
             el.addEventListener("mouseleave", () => {
                 document.body.classList.remove("cursor-hover");
+                document.body.classList.remove("hovering-btn");
                 // reset magnetic buttons just in case
                 gsap.to(el, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.3)" });
             });
