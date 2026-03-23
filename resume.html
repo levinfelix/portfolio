@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levin Felix | Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .resume-container { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 4rem; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .resume-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--accent-primary); padding-bottom: 2rem; margin-bottom: 3rem; }
+        .resume-header h1 { font-size: 3.5rem; letter-spacing: -1px; margin-bottom: 0.5rem; text-transform: uppercase; }
+        .resume-header p { font-size: 1.1rem; color: var(--text-secondary); margin: 0; }
+        .resume-section { margin-bottom: 3rem; }
+        .resume-section h2 { font-size: 1.5rem; color: var(--accent-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .resume-item { margin-bottom: 2rem; }
+        .resume-item h3 { font-size: 1.25rem; margin-bottom: 0.25rem; color: var(--text-primary); }
+        .resume-item p { margin-bottom: 0.5rem; color: var(--text-secondary); }
+        .resume-item ul { padding-left: 20px; color: var(--text-secondary); }
+        .resume-item li { margin-bottom: 0.5rem; }
+        .skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-tag { padding: 4px 12px; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.85rem; background: var(--bg-color); color: var(--text-primary); }
+        
+        @media (max-width: 768px) {
+            .resume-container { padding: 2rem; margin: 1rem; }
+            .resume-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+            .resume-header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body class="loading-state">
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <!-- Header -->
+    <header id="header" class="scrolled">
+        <div class="header-container">
+            <a href="index.html" class="logo magnetic" data-strength="10">LF<span>.</span></a>
+            <nav class="nav-links">
+                <a href="index.html#hero" class="nav-item">Home</a>
+                <a href="index.html#skills" class="nav-item">Skills</a>
+                <a href="index.html#projects" class="nav-item">Projects</a>
+                <a href="index.html#certifications" class="nav-item">Certifications</a>
+                <a href="index.html#achievements" class="nav-item">Achievements</a>
+                <a href="resume.html" class="nav-item active">Resume</a>
+                <a href="index.html#contact" class="nav-item">Contact</a>
+                <button id="theme-toggle" class="theme-btn magnetic" data-strength="15" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+            </nav>
+            <div class="mobile-toggle" aria-label="Toggle Menu">
+                <div class="hamburger"></div>
+            </div>
+        </div>
+    </header>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <section style="min-height: 100vh; position: relative; padding-top: 150px; padding-bottom: 100px;">
+                <div class="bg-grid"></div>
+                <div class="container resume-container" style="position: relative; z-index: 10;">
+                    
+                    <div class="resume-header">
+                        <div>
+                            <h1>Levin Felix</h1>
+                            <p>Kochi, Kerala | <a href="mailto:levin17felix@gmail.com" style="color: var(--accent-primary);">levin17felix@gmail.com</a> | +91-7012374761</p>
+                            <div style="margin-top: 0.5rem;">
+                                <a href="https://linkedin.com/in/levinfelix" target="_blank" style="color: var(--text-secondary); margin-right: 15px;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                                <a href="https://github.com/levinfelix" target="_blank" style="color: var(--text-secondary); margin-right: 15px;"><i class="fa-brands fa-github"></i> GitHub</a>
+                                <a href="https://levinfelix.github.io/portfolio" target="_blank" style="color: var(--text-secondary);"><i class="fa-solid fa-globe"></i> Portfolio</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="assets/docs/CV%20Levin%20Felix.pdf" download="Levin_Felix_CV.pdf" class="btn btn-primary magnetic" data-strength="20"><i class="fa-solid fa-download"></i> Download PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <h2>Education</h2>
+                        <div class="resume-item">
+                            <div style="display: flex; justify-content: space-between;">
+                                <h3>Lovely Professional University (Phagwara)</h3>
+                                <span style="color: var(--accent-primary); font-weight: 600;">Aug 2023 - Present</span>
+                            </div>
+                            <p>B.Tech - Computer Science and Engineering | CGPA: 7.8</p>
+                        </div>
+                        <div class="resume-item">
+                            <div style="display: flex; justify-content: space-between;">
+                                <h3>Rajagiri Public School (Kalamassery)</h3>
+                                <span style="color: var(--accent-primary); font-weight: 600;">June 2021 - March 2023</span>
+                            </div>
+                            <p>Intermediate | Percentage: 81%</p>
+                        </div>
+                        <div class="resume-item">
+                            <div style="display: flex; justify-content: space-between;">
+                                <h3>Rajagiri Public School (Kalamassery)</h3>
+                                <span style="color: var(--accent-primary); font-weight: 600;">June 2011 - March 2021</span>
+                            </div>
+                            <p>Matriculation | Percentage: 86%</p>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <h2>Work Experience</h2>
+                        <div class="resume-item">
+                            <div style="display: flex; justify-content: space-between;">
+                                <h3>Freelance Web Developer</h3>
+                                <span style="color: var(--accent-primary); font-weight: 600;">June 2023 - Present</span>
+                            </div>
+                            <ul>
+                                <li>Delivering responsive and professional WordPress websites for multiple clients across different sectors.</li>
+                                <li>Designing clean layouts, optimizing performance, and improving user navigation.</li>
+                                <li>Integrating custom features, forms, and client-friendly mapping options.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <h2>Projects</h2>
+                        <div class="resume-item">
+                            <div style="display: flex; justify-content: space-between;">
+                                <h3>SmartCampus</h3>
+                                <span style="color: var(--text-muted); font-size: 0.9rem;">Python, Django, SQLite, Bootstrap</span>
+                            </div>
+                            <ul>
+                                <li>Orchestrated a secure, role-governed campus automation ecosystem serving 1,000+ students.</li>
+                                <li>Instituted a real-time food ordering framework powered by operational efficiency workflows.</li>
+                            </ul>
+                        </div>
+                        <div class="resume-item">
+                            <div style="display: flex; justify-content: space-between;">
+                                <h3>Elrozinteriors.in</h3>
+                                <span style="color: var(--text-muted); font-size: 0.9rem;">WordPress Custom Design</span>
+                            </div>
+                            <ul>
+                                <li>Crafted a cohesive digital presence consolidating architecture showcases.</li>
+                                <li>Structured responsive layouts optimizing loading times by ~30% and inbound pipeline capture.</li>
+                            </ul>
+                        </div>
+                        <div class="resume-item">
+                            <div style="display: flex; justify-content: space-between;">
+                                <h3>Examopedia: The Quiz App</h3>
+                                <span style="color: var(--text-muted); font-size: 0.9rem;">React, Firebase, AWS S3, Amplify</span>
+                            </div>
+                            <ul>
+                                <li>Architected a production-grade quiz platform securely tracking scores and live authentications.</li>
+                                <li>Engineered cloud-backed Firebase layer gracefully scalable over the entire AWS ecosystem.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <h2>Skills</h2>
+                        <div class="skills-list">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C++ / Java</span>
+                            <span class="skill-tag">JavaScript / React</span>
+                            <span class="skill-tag">HTML5 / CSS3</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">WordPress</span>
+                            <span class="skill-tag">MySQL / SQLite</span>
+                            <span class="skill-tag">Firebase</span>
+                            <span class="skill-tag">AWS Cloud</span>
+                            <span class="skill-tag">Linux / Git</span>
+                            <span class="skill-tag">Problem-Solving</span>
+                            <span class="skill-tag">Team Collaboration</span>
+                            <span class="skill-tag">Adaptability</span>
+                            <span class="skill-tag">Leadership</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+            
+            <footer class="footer">
+                <div class="container text-center">
+                    <p>&copy; 2026 Developed with <i class="fa-solid fa-heart text-gradient" style="color: var(--accent-primary);"></i> by Levin Felix. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>
