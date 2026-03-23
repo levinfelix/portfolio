@@ -322,30 +322,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* =========================================
-       7. CONTACT FORM SUBMISSION
-       ========================================= */
-    const contactForm = document.getElementById("contactForm");
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const btn = contactForm.querySelector("button[type='submit']");
-            const originalText = btn.innerHTML;
-            
-            // Simple mockup of success state
-            btn.innerHTML = '<span>Sent Successfully!</span> <i class="fa-solid fa-check"></i>';
-            btn.style.background = "#4ade80"; // Green color
-            
-            contactForm.reset();
-
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = ""; // Restore to CSS class
-            }, 3000);
-        });
-    }
-
-    /* =========================================
        8. SCROLL SPY (ACTIVE NAV TABS)
        ========================================= */
     const sections = document.querySelectorAll("section[id]");
