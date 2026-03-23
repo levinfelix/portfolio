@@ -155,13 +155,13 @@ a {
 }
 
 .btn-primary {
-    background: var(--text-primary);
-    color: var(--bg-color);
+    background: var(--accent-primary);
+    color: #111;
 }
 
 .btn-primary:hover {
-    background: var(--accent-primary);
-    color: #fff;
+    background: var(--text-primary);
+    color: var(--bg-color);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px var(--accent-glow);
 }
@@ -238,14 +238,6 @@ a {
         mix-blend-mode: difference;
     }
 
-    /* Prevent brutal difference inversion from turning yellow into blue in Dark Mode! */
-    body[data-theme="dark"].hovering-btn #cursor-follower {
-        background-color: transparent;
-        border: 2px solid var(--text-primary);
-        mix-blend-mode: normal;
-        transform: translate(-50%, -50%) scale(1.2);
-    }
-    
     a, button, input, textarea { cursor: none; }
 }
 
