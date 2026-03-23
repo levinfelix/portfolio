@@ -420,19 +420,43 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(async (response) => {
                 let jsonResponse = await response.json();
                 if (response.status === 200) {
-                    alert("Success! Your message was sent.");
+                    btn.innerHTML = '<span>Sent Successfully!</span> <i class="fa-solid fa-check"></i>';
+                    btn.style.background = "#10B981"; // Emerald Green for success
+                    btn.style.borderColor = "#10B981";
+                    btn.style.color = "#000";
                     contactForm.reset();
+                    
+                    // Reset button after 3.5 seconds
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.style.background = "";
+                        btn.style.borderColor = "";
+                        btn.style.color = "";
+                    }, 3500);
                 } else {
                     console.error("Web3Forms API Error:", jsonResponse);
-                    alert("Delivery Failed: " + (jsonResponse.message || "Unknown error"));
+                    btn.innerHTML = '<span>Failed to Send</span> <i class="fa-solid fa-xmark"></i>';
+                    btn.style.background = "#EF4444"; // Red for error
+                    btn.style.borderColor = "#EF4444";
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.style.background = "";
+                        btn.style.borderColor = "";
+                    }, 3500);
                 }
             })
             .catch(error => {
                 console.error("AJAX Error:", error);
-                alert("Network error: Something prevented the message from sending. Check the console.");
-            })
-            .finally(() => {
-                btn.innerHTML = originalHTML;
+                btn.innerHTML = '<span>Network Error</span> <i class="fa-solid fa-triangle-exclamation"></i>';
+                btn.style.background = "#EF4444";
+                btn.style.borderColor = "#EF4444";
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.background = "";
+                    btn.style.borderColor = "";
+                }, 3500);
             });
         });
     }
