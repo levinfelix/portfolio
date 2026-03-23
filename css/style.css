@@ -237,6 +237,15 @@ a {
         border-color: transparent;
         mix-blend-mode: difference;
     }
+
+    /* Prevent brutal difference inversion from turning yellow into blue in Dark Mode! */
+    body[data-theme="dark"].hovering-btn #cursor-follower {
+        background-color: transparent;
+        border: 2px solid var(--text-primary);
+        mix-blend-mode: normal;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    
     a, button, input, textarea { cursor: none; }
 }
 
@@ -942,17 +951,30 @@ header.scrolled {
 .footer p { margin: 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
 
 /* RESPONSIVE DESIGN */
+/* RESPONSIVE DESIGN */
 @media (max-width: 992px) {
-    .hero-title { font-size: 4rem; }
+    .section-padding { padding: 100px 0; }
+    .hero-title { font-size: 3.5rem; letter-spacing: -2px; }
+    .section-title { font-size: 3.5rem; }
+    
     .hero-layout, .about-grid, .split-layout, .contact-container {
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 3rem;
     }
-    .hero-image-wrapper { order: -1; justify-content: flex-start; } 
-    .profile-frame { max-width: 100%; }
+    .hero-cta { justify-content: flex-start; }
+    
+    /* Center the hero image on tablet */
+    .hero-image-wrapper { order: -1; justify-content: center; } 
+    .profile-frame { max-width: 80%; margin: 0 auto; }
 }
 
 @media (max-width: 768px) {
+    .section-padding { padding: 60px 0; }
+    .hero-title { font-size: 2.8rem; letter-spacing: -1px; }
+    .section-title { font-size: 2.8rem; }
+    .contact-info .section-title { font-size: 2.5rem; }
+    p.hero-subtitle { font-size: 1rem; }
+    
     .nav-links {
         position: fixed;
         top: 0; right: -100%;
@@ -962,9 +984,10 @@ header.scrolled {
         justify-content: center;
         align-items: center;
         transition: 0.5s ease;
+        z-index: 1000;
     }
     .nav-links.active { right: 0; }
-    .nav-item { font-size: 1.5rem; }
+    .nav-item { font-size: 1.5rem; margin: 15px 0; }
     
     .mobile-toggle {
         display: block;
@@ -986,7 +1009,15 @@ header.scrolled {
     .mobile-toggle.active .hamburger::before { top: 0; transform: rotate(45deg); }
     .mobile-toggle.active .hamburger::after { bottom: 0; transform: rotate(-45deg); }
 
-    .section-padding { padding: 80px 0; }
-    .stat-number { font-size: 3rem; }
-    .stats-container { gap: 2rem; flex-wrap: wrap; justify-content: flex-start; }
+    /* Fix timeline for mobile */
+    .split-layout { gap: 4rem; }
+    .timeline { padding-left: 15px; }
+    .timeline-item { margin-bottom: 3rem; }
+    
+    /* Fix stats & buttons for mobile */
+    .stat-number { font-size: 2.5rem; }
+    .stats-container { gap: 1.5rem; flex-wrap: wrap; justify-content: space-around; }
+    
+    .btn { padding: 0.8rem 1.8rem; font-size: 0.9rem; }
+    .btn-block { padding: 1rem; }
 }
