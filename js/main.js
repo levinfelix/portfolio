@@ -417,4 +417,48 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    /* =========================================
+       11. CONTACT FORM AJAX HANDLER
+       ========================================= */
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+        contactForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<span>Sending...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
+            
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let jsonResponse = await response.json();
+                if (response.status === 200) {
+                    alert("Success! Your message was sent.");
+                    contactForm.reset();
+                } else {
+                    console.error("Web3Forms API Error:", jsonResponse);
+                    alert("Delivery Failed: " + (jsonResponse.message || "Unknown error"));
+                }
+            })
+            .catch(error => {
+                console.error("AJAX Error:", error);
+                alert("Network error: Something prevented the message from sending. Check the console.");
+            })
+            .finally(() => {
+                btn.innerHTML = originalHTML;
+            });
+        });
+    }
+
 });
