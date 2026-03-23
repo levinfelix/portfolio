@@ -1012,4 +1012,17 @@ header.scrolled {
     
     .btn { padding: 0.8rem 1.8rem; font-size: 0.9rem; }
     .btn-block { padding: 1rem; }
+    
+    /* Make skills stack neatly on mobile instead of cramping */
+    .tech-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 10px !important;
+        width: 100%;
+    }
+    .tech-pill {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+    }
 }
